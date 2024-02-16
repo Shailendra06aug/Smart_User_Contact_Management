@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http;//www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+
+ <link rel="stylesheet"  th:href="@{/css/newStyle.css}" /> 
+
+<title>This is home page</title>
+</head>
+<body>
+	
+	<section>
+
+		<div class="box-form mt-3">
+	<div class="left">
+		<div class="overlay">
+		<h1 >Welcome</h1>
+		<span>
+		<p >Smart Contact Manager
+		</p>
+	</span>
+		<!--
+		<span>
+			<p>login with social media</p>
+			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+		</span> -->
+		</div>
+	</div>
+	
+	
+		<div class="right">
+		
+		<h5 class="text-center">Login</h5>
+		
+		<form >
+		<br>
+		<br>
+		
+		 <div th:if="${param.error}" class="alert alert-danger">
+           Invalid username and password
+        </div>
+                            
+       <div th:if="${param.logout}" class="alert alert-success text-center">
+          You have been logged out
+       </div>
+       
+		<p>Don't have an account? <a th:href="@{/signup}">Create Your Account</a> it takes less than a minute</p>
+		
+		<div class="inputs">
+			<input type="text"  name="username" id="username"  placeholder="user name" required="required">
+			<br>
+			<input type="password" name="password" id="password" placeholder="password" required="required">
+		</div>
+			
+			<br><br>
+			
+		<div class="remember-me--forget-password">
+				
+	<label>
+		<input type="checkbox" name="item" checked/>
+		<span class="text-checkbox">Remember me</span>
+	</label>
+			
+			<p> <a th:href="@{/forget}">forget password?</a></p>
+		</div>
+			
+			<br>
+			  <button type="submit" class="btn btn-primary btn-block">Login</button>
+	</div>
+	
+	</form>
+	
+</div>
+
+	</section>
+
+
+</body>
+</html>
